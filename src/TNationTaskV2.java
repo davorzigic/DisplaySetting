@@ -78,9 +78,10 @@ public class TNationTaskV2 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String test = "9:00 John Doe until 10 30 at Office";
+		String test = "precipice in front wolves behind";
+		System.out.println(test.length());
 
-		ArrayList<String> string = maxNumOfChar(test, 7, 3);
+		ArrayList<String> string = maxNumOfChar(test, 3, 10);
 
 		System.out.println(string);
 		

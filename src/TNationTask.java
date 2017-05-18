@@ -22,6 +22,7 @@ public class TNationTask {
 		
 		String[] substrings = new String[maxLines];
 
+		// Boundaries
 		if (s.length() == 0) {
 			System.out.println("String is empty.");
 			return null;
@@ -39,7 +40,6 @@ public class TNationTask {
 				} else {
 				// if the first char in line is space
 					String test = s.substring(j, j+1);
-					System.out.println(test);
 					if(!test.equals(" ")) { 
 						substrings[i] = " " + s.substring(j, j + maxChar-1);
 						j += maxChar-1;
@@ -84,9 +84,9 @@ public class TNationTask {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String test = "9:00 John Doe until 10 30 at Office";
+		String test = "precipice in front wolves behind";
 		
-		String[] string = maxNumOfChar(test, 7, 7);
+		String[] string = maxNumOfChar(test, 3, 10);
 		
 
 		for (int i = 0; i < string.length; i++) {
