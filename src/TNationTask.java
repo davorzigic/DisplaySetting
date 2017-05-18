@@ -10,9 +10,16 @@ public class TNationTask {
 	 * @return returns array of splitted strings
 	 */
 	public static String[] maxNumOfChar(String s, int maxChar, int maxLines) {
-
-		int arrayLength = s.length() / maxChar;
-
+		
+		
+		// Cheking if we can fit number of 'maxLines' given
+		int biggerThan = maxChar * maxLines;
+		if(s.length() < biggerThan) {
+			System.out.println("You have to enter less max lines.");
+			return null;
+		}
+		
+		
 		String[] substrings = new String[maxLines];
 
 		if (s.length() == 0) {
@@ -23,8 +30,7 @@ public class TNationTask {
 		} else {
 
 			int j = 0;
-			int lastIndex = substrings.length - 1;
-
+			
 			for (int i = 0; i < maxLines-1; i++) {
 
 				if(i == 0) {
@@ -80,7 +86,7 @@ public class TNationTask {
 
 		String test = "9:00 John Doe until 10 30 at Office";
 		
-		String[] string = maxNumOfChar(test, 5, 4);
+		String[] string = maxNumOfChar(test, 7, 7);
 		
 
 		for (int i = 0; i < string.length; i++) {
