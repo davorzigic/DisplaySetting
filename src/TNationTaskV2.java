@@ -13,7 +13,7 @@ public class TNationTaskV2 {
 	public static ArrayList<String> maxNumOfChar(String s, int maxChar, int maxLines) {
 
 		// Cheking if we can fit number of 'maxLines' given
-		int biggerThan = maxChar * maxLines;
+		int biggerThan = maxChar * maxLines - (maxLines-1);
 		if (s.length() < biggerThan) {
 			System.out.println("You have to enter less max lines.");
 			return null;
@@ -21,11 +21,13 @@ public class TNationTaskV2 {
 
 		ArrayList<String> substrings = new ArrayList<String>();
 
+		// Boundaries
 		if (s.length() == 0) {
 			System.out.println("String is empty.");
 			return null;
 		} else if (s.length() < maxChar) {
 			System.out.println("You have to enter less max number of chars");
+			return null;
 		} else {
 
 			int j = 0;
@@ -50,12 +52,17 @@ public class TNationTaskV2 {
 				}
 
 			}
+			// Adding the last part
 			String empty = s.substring(j, j + 1);
 			String substring = s.substring(j);
 
+			// Checking if the next char is space
 			if (!empty.equals(" ")) {
+				// If don't have enough characters left
 				if (substring.length() < maxChar - 1) {
 					substrings.add(" " + s.substring(j));
+					
+				// If there are left more characters than 'maxChar'
 				} else {
 					substrings.add(" " + s.substring(j, j + maxChar - 1));
 				}
@@ -71,17 +78,15 @@ public class TNationTaskV2 {
 
 			return substrings;
 		}
-
-		return null;
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String test = "precipice in front wolves behind";
+		String test = "The same (hated) man will be loved after he's dead. How quickly we forget";
 		System.out.println(test.length());
 
-		ArrayList<String> string = maxNumOfChar(test, 3, 10);
+		ArrayList<String> string = maxNumOfChar(test, 7, 12);
 
 		System.out.println(string);
 		

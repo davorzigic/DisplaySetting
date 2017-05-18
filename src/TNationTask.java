@@ -13,7 +13,7 @@ public class TNationTask {
 		
 		
 		// Cheking if we can fit number of 'maxLines' given
-		int biggerThan = maxChar * maxLines;
+		int biggerThan = maxChar * maxLines - (maxLines-1); // subtracting the identation 
 		
 		if(s.length() < biggerThan) {
 			System.out.println("You have to enter less max lines.");
@@ -82,10 +82,6 @@ public class TNationTask {
 		}
 	}
 	
-	public static void maxLines(int maxLines) {
-		
-	}
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
