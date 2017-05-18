@@ -14,6 +14,7 @@ public class TNationTask {
 		
 		// Cheking if we can fit number of 'maxLines' given
 		int biggerThan = maxChar * maxLines;
+		
 		if(s.length() < biggerThan) {
 			System.out.println("You have to enter less max lines.");
 			return null;
@@ -28,6 +29,7 @@ public class TNationTask {
 			return null;
 		} else if (s.length() < maxChar) {
 			System.out.println("You have to enter less max number of chars");
+			return null;
 		} else {
 
 			int j = 0;
@@ -51,12 +53,17 @@ public class TNationTask {
 				}
 				
 			}
+			// Adding the last part
 			String empty = s.substring(j,j+1);
 			String substring = s.substring(j);
 			
+			// Checking if the next char is space
 			if(!empty.equals(" ")) {
+				// If don't have enough characters left
 				if (substring.length() < maxChar-1) {
 					substrings[maxLines-1] = " " + s.substring(j);
+					
+				// If there are left more characters than 'maxChar'
 				} else {
 					substrings[maxLines-1] = " " + s.substring(j, j + maxChar-1);
 				}
@@ -70,11 +77,9 @@ public class TNationTask {
 				
 			}
 			
-
+			
 			return substrings;
 		}
-		
-		return null;
 	}
 	
 	public static void maxLines(int maxLines) {
@@ -84,9 +89,9 @@ public class TNationTask {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		String test = "precipice in front wolves behind";
+		String test = "9:00 John Doe until 10 30 at Office";
 		
-		String[] string = maxNumOfChar(test, 3, 10);
+		String[] string = maxNumOfChar(test, 3, 11);
 		
 
 		for (int i = 0; i < string.length; i++) {
