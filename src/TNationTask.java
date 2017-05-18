@@ -45,11 +45,23 @@ public class TNationTask {
 				}
 				
 			}
-			String empty = s.substring(j-1,j);
+			String empty = s.substring(j,j+1);
+			String substring = s.substring(j);
+			
 			if(!empty.equals(" ")) {
-				substrings[maxLines-1] = " " + s.substring(j);
+				if (substring.length() < maxChar-1) {
+					substrings[maxLines-1] = " " + s.substring(j);
+				} else {
+					substrings[maxLines-1] = " " + s.substring(j, j + maxChar-1);
+				}
+				
 			} else {
-				substrings[maxLines-1] = s.substring(j);
+				if (substring.length() < maxChar) {
+					substrings[maxLines-1] = s.substring(j);
+				} else {
+					substrings[maxLines-1] = s.substring(j, j + maxChar);
+				}
+				
 			}
 			
 
@@ -68,7 +80,7 @@ public class TNationTask {
 
 		String test = "9:00 John Doe until 10 30 at Office";
 		
-		String[] string = maxNumOfChar(test, 11, 4);
+		String[] string = maxNumOfChar(test, 5, 4);
 		
 
 		for (int i = 0; i < string.length; i++) {
