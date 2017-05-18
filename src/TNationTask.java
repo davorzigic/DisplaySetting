@@ -32,10 +32,11 @@ public class TNationTask {
 					j += maxChar;
 				} else {
 				// if the first char in line is space
-					String test = s.substring(j-1, j);
-					if(test != " ") {
-						substrings[i] = " " + s.substring(j-1, j + maxChar);
-						j += maxChar;
+					String test = s.substring(j, j+1);
+					System.out.println(test);
+					if(!test.equals(" ")) { 
+						substrings[i] = " " + s.substring(j, j + maxChar-1);
+						j += maxChar-1;
 					} else {
 						substrings[i] = s.substring(j, j + maxChar);
 						j += maxChar;
@@ -45,10 +46,10 @@ public class TNationTask {
 				
 			}
 			String empty = s.substring(j-1,j);
-			if(empty != " ") {
-				substrings[maxLines-1] = " " + s.substring(j-1);
+			if(!empty.equals(" ")) {
+				substrings[maxLines-1] = " " + s.substring(j);
 			} else {
-				substrings[maxLines-1] = s.substring(j-1);
+				substrings[maxLines-1] = s.substring(j);
 			}
 			
 

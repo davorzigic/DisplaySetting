@@ -6,7 +6,7 @@ public class TestingClass {
 		
 		String something = "hello there";
 		
-		System.out.println(something.substring(3, 5));
+		System.out.println(something.substring(0, 11));
 
 	}
 
